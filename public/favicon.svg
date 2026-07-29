@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5CC8FF"></stop>
+      <stop offset="100%" stop-color="#2F80ED"></stop>
+    </linearGradient>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#2F80ED" flood-opacity=".45"></feDropShadow>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="120" fill="#030303"></rect>
+
+  <!-- Left bracket -->
+  <path d="M122 256 L175 205 M122 256 L175 307" stroke="url(#g)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path>
+
+  <!-- Right bracket -->
+  <path d="M390 205 L443 256 M390 307 L443 256" stroke="url(#g)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path>
+
+  <!-- Monogram -->
+  <path d="
+      M188 166
+      C150 166 132 186 132 214
+      C132 242 154 255 198 266
+      C246 278 266 290 266 316
+      C266 348 240 368 196 368
+      H150" fill="none" stroke="url(#g)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"></path>
+
+  <path d="
+      M242 166
+      H362
+      L238 346
+      H362" fill="none" stroke="white" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"></path>
+
+  <!-- Slash -->
+  <path d="M250 152 L215 360" stroke="url(#g)" stroke-width="10" stroke-linecap="round" filter="url(#glow)"></path>
+</svg>
