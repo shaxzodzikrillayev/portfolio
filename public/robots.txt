@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolio-eight-kappa-nr123shwl6.vercel.app/sitemap.xml
