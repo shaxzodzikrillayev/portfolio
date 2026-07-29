@@ -1,0 +1,155 @@
+.about {
+  padding: 120px 0;
+  background: #050505;
+  overflow: hidden;
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 70px;
+  }
+}
+
+.about__subtitle {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #6366f1;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.about__title {
+  max-width: 650px;
+  margin-bottom: 25px;
+  color: #fff;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.about__text {
+  max-width: 600px;
+  margin-bottom: 35px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.about__buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.about__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 55px;
+  border-radius: 14px;
+  background: #6366f1;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.35);
+  }
+
+  &--ghost {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: none;
+    }
+  }
+}
+
+.about__right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about__card {
+  position: relative;
+  padding: 30px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: 0.35s;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at top left,
+      rgba(99, 102, 241, 0.18),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: 0.35s;
+  }
+
+  &:hover {
+    transform: translateY(-7px);
+    border-color: #6366f1;
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  h3 {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 23px;
+  }
+
+  p {
+    position: relative;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 992px) {
+  .about {
+    padding: 90px 0;
+    .container {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .about__text {
+    font-size: 16px;
+  }
+
+  .about__buttons {
+    flex-direction: column;
+  }
+
+  .about__button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 60px 0;
+  }
+
+  .about__card {
+    padding: 22px;
+  }
+}

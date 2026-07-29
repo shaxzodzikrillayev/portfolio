@@ -1,0 +1,15 @@
+.button {
+  width: 170px;
+  height: 55px;
+  border: none;
+  border-radius: 14px;
+  background: #2f80ed;
+  color: white;
+  font-weight: 600;
+  transition: 0.35s;
+}
+
+.button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(47, 128, 237, 0.35);
+}
