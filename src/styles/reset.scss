@@ -1,24 +1,65 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
+
   padding: 0;
+
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   overflow-x: hidden;
+
+  min-height: 100vh;
 }
 
 a {
   text-decoration: none;
+
+  color: inherit;
 }
 
 button {
   border: none;
+
+  outline: none;
+
   cursor: pointer;
+
   font-family: inherit;
+
+  background: none;
 }
 
 img {
   display: block;
+
   max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input,
+textarea {
+  font-family: inherit;
+
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
 }

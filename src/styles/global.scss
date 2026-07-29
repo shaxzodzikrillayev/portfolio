@@ -4,53 +4,159 @@
 * {
   margin: 0;
   padding: 0;
+
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+
+  scroll-padding-top: 80px;
 }
 
 body {
+  position: relative;
+
+  min-height: 100vh;
+
   background: #030303;
-  color: #ffffff;
+
+  color: #fff;
+
   font-family: "Inter", sans-serif;
+
   overflow-x: hidden;
+}
+
+/* GLOBAL GLOW */
+
+body::before {
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+
+      rgba(47, 128, 237, 0.12),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+
+      rgba(99, 102, 241, 0.12),
+      transparent 35%
+    );
+
+  z-index: -2;
+}
+
+/* GRID */
+
+body::after {
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.035) 1px,
+
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035) 1px,
+
+      transparent 1px
+    );
+
+  background-size: 45px 45px;
+
+  mask-image: radial-gradient(circle, black, transparent 75%);
+
+  z-index: -1;
 }
 
 a {
   text-decoration: none;
+
   color: inherit;
 }
 
 button {
   border: none;
+
   outline: none;
+
   cursor: pointer;
+
   font-family: inherit;
 }
 
 img {
   display: block;
+
   max-width: 100%;
+
+  user-select: none;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.04) 1px,
-    transparent 1px
-  );
-  background-size: 32px 32px;
-  opacity: 0.4;
-  z-index: -1;
+::selection {
+  background: #2f80ed;
+
+  color: white;
 }
+
+/* CONTAINER */
 
 .container {
   width: 1280px;
+
   max-width: calc(100% - 80px);
+
   margin: 0 auto;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030303;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#2f80ed, #6366f1);
+
+  border-radius: 20px;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: calc(100% - 60px);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    max-width: calc(100% - 30px);
+  }
 }

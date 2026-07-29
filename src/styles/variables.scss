@@ -1,5 +1,31 @@
-$background: #080808;
-$card: #171717;
+$background: #030303;
+
+$background-light: #080808;
+
+$card: rgba(255, 255, 255, 0.04);
+
+$card-hover: rgba(47, 128, 237, 0.12);
+
 $blue: #2f80ed;
+
+$blue-light: #6366f1;
+
+$blue-glow: rgba(47, 128, 237, 0.45);
+
 $text: #ffffff;
+
+$text-secondary: rgba(255, 255, 255, 0.65);
+
 $gray: #9b9b9b;
+
+$border: rgba(255, 255, 255, 0.1);
+
+$radius-small: 14px;
+
+$radius-medium: 22px;
+
+$radius-large: 30px;
+
+$transition: 0.4s ease;
+
+$container: 1280px;

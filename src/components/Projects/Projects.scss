@@ -1,145 +1,357 @@
 .projects {
-  padding: 120px 0;
-  background: #030303;
+  position: relative;
   overflow: hidden;
 
+  padding: 120px 0;
+
+  background: #030303;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    left: -250px;
+
+    top: 100px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+      circle,
+      rgba(47, 128, 237, 0.35),
+      transparent 70%
+    );
+
+    filter: blur(120px);
+
+    animation: projectGlow 7s infinite;
+  }
+
   &__subtitle {
-    display: block;
-    margin-bottom: 18px;
-    text-align: center;
-    color: #6366f1;
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+
+    color: #2f80ed;
+
     font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 4px;
+
+    font-weight: 800;
+
+    letter-spacing: 5px;
+  }
+
+  &__subtitle::before,
+  &__subtitle::after {
+    content: "";
+
+    width: 40px;
+
+    height: 2px;
+
+    background: #2f80ed;
+
+    box-shadow: 0 0 15px #2f80ed;
   }
 
   &__title {
+    position: relative;
+
     margin-bottom: 70px;
+
     text-align: center;
-    color: #fff;
-    font-size: clamp(36px, 5vw, 52px);
-    font-weight: 700;
+
+    color: white;
+
+    font-size: clamp(38px, 5vw, 58px);
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
   }
 
   &__grid {
+    position: relative;
+
     display: grid;
+
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
     gap: 30px;
   }
 
   &__card {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 24px;
+
     overflow: hidden;
-    transition: 0.35s;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 30px;
+
+    min-height: 470px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 28px;
+
+    transition: 0.5s;
+
+    animation: cardShow 0.8s ease forwards;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background: radial-gradient(
+        circle at top left,
+
+        rgba(47, 128, 237, 0.25),
+        transparent 60%
+      );
+
+      opacity: 0;
+
+      transition: 0.4s;
+    }
 
     &:hover {
-      transform: translateY(-10px);
-      border-color: #6366f1;
-      box-shadow: 0 15px 40px rgba(99, 102, 241, 0.18);
+      transform: translateY(-12px);
+
+      border-color: rgba(47, 128, 237, 0.7);
+
+      box-shadow: 0 30px 80px rgba(47, 128, 237, 0.25);
+    }
+
+    &:hover::before {
+      opacity: 1;
     }
 
     h3 {
+      position: relative;
+
       margin-bottom: 15px;
-      color: #fff;
+
+      color: white;
+
       font-size: 28px;
+
+      font-weight: 800;
     }
 
     p {
+      position: relative;
+
       margin-bottom: 25px;
+
       color: rgba(255, 255, 255, 0.65);
+
       line-height: 1.8;
     }
   }
 
   &__image {
-    height: 190px;
+    position: relative;
+
+    height: 200px;
+
     margin-bottom: 25px;
+
     overflow: hidden;
-    border-radius: 18px;
-    background: #101010;
+
+    border-radius: 22px;
+
+    background: #080808;
 
     img {
       width: 100%;
+
       height: 100%;
+
       object-fit: cover;
-      transition: 0.4s;
+
+      transition: 0.6s;
+    }
+
+    &::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.15),
+        transparent
+      );
+
+      transform: translateX(-120%);
+
+      transition: 0.7s;
     }
   }
 
   &__card:hover &__image img {
-    transform: scale(1.08);
+    transform: scale(1.12);
+  }
+
+  &__card:hover &__image::after {
+    transform: translateX(120%);
   }
 
   &__tech {
+    position: relative;
+
     margin-bottom: 30px;
-    color: #6366f1;
+
+    color: #2f80ed;
 
     font-size: 14px;
 
-    font-weight: 600;
+    font-weight: 700;
   }
 
   &__button {
+    position: relative;
+
+    overflow: hidden;
+
     display: flex;
 
     justify-content: center;
+
     align-items: center;
 
     width: 170px;
-    height: 50px;
 
-    border-radius: 12px;
+    height: 52px;
 
-    background: #6366f1;
+    border-radius: 14px;
 
-    color: #fff;
+    background: #2f80ed;
+
+    color: white;
 
     text-decoration: none;
 
-    font-weight: 600;
+    font-weight: 700;
 
-    transition: 0.35s;
+    transition: 0.4s;
+
+    box-shadow: 0 10px 30px rgba(47, 128, 237, 0.3);
+
+    &::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+      );
+
+      transform: translateX(-120%);
+
+      transition: 0.6s;
+    }
 
     &:hover {
-      transform: translateY(-3px);
+      transform: translateY(-5px);
 
-      background: #7c83ff;
+      box-shadow: 0 20px 50px rgba(47, 128, 237, 0.5);
+    }
 
-      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.35);
+    &:hover::before {
+      transform: translateX(120%);
     }
   }
+}
 
-  @media (max-width: 768px) {
+@keyframes projectGlow {
+  0%,
+  100% {
+    transform: translate(0, 0);
+
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translate(80px, 50px);
+
+    opacity: 1;
+  }
+}
+
+@keyframes cardShow {
+  from {
+    opacity: 0;
+
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
     padding: 90px 0;
-
-    &__grid {
-      grid-template-columns: 1fr;
-    }
-
-    &__card {
-      padding: 25px;
-    }
-
-    &__button {
-      width: 100%;
-    }
   }
 
-  @media (max-width: 480px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects__card {
+    padding: 25px;
+  }
+
+  .projects__button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
     padding: 70px 0;
+  }
 
-    &__image {
-      height: 160px;
-    }
+  .projects__image {
+    height: 160px;
+  }
 
-    &__card h3 {
-      font-size: 24px;
-    }
+  .projects__card h3 {
+    font-size: 24px;
   }
 }

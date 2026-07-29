@@ -1,58 +1,145 @@
 .companies {
-  padding: 80px 0;
-  background: #030303;
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(47, 128, 237, 0.08),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(99, 102, 241, 0.08),
+      transparent 35%
+    ),
+    #030303;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -250px;
+    left: -250px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: #2f80ed;
+    filter: blur(180px);
+    opacity: 0.08;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -250px;
+    bottom: -250px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: #6366f1;
+    filter: blur(180px);
+    opacity: 0.08;
+  }
 
   &__subtitle {
+    position: relative;
+    z-index: 2;
+
     display: block;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
+
     text-align: center;
+
     color: rgba(255, 255, 255, 0.55);
+
     font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 4px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
   }
 
   &__grid {
+    position: relative;
+    z-index: 2;
+
     display: grid;
     grid-template-columns: repeat(5, 180px);
     justify-content: center;
-    gap: 25px;
+    gap: 28px;
   }
 
   &__card {
     position: relative;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     width: 180px;
     height: 180px;
+
     overflow: hidden;
     cursor: pointer;
+
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 24px;
-    background: #0d0d0d;
-    transition: 0.35s;
+    border-radius: 26px;
+
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(16px);
+
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+
+    transition: 0.4s;
 
     &::before {
       content: "";
       position: absolute;
       inset: 0;
+
       background: radial-gradient(circle, var(--tech-color), transparent 70%);
+
       opacity: 0;
-      transition: 0.35s;
+      transition: 0.4s;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      width: 100%;
+      height: 3px;
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--tech-color),
+        transparent
+      );
+
+      opacity: 0.8;
     }
 
     &:hover {
-      transform: translateY(-8px);
+      transform: translateY(-10px) scale(1.04);
+
       border-color: var(--tech-color);
+
+      box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.45),
+        0 0 30px color-mix(in srgb, var(--tech-color) 35%, transparent);
+
       &::before {
-        opacity: 0.12;
+        opacity: 0.14;
       }
+
       .companies__logo {
         color: var(--tech-color);
-        transform: scale(1.12);
+        transform: scale(1.18) rotate(-6deg);
       }
+
       .companies__name {
         color: var(--tech-color);
       }
@@ -60,30 +147,48 @@
   }
 
   &__logo {
-    z-index: 1;
-    margin-bottom: 20px;
-    color: #fff;
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 18px;
+
+    color: white;
+
     font-size: 64px;
-    transition: 0.35s;
+
+    transition: 0.4s;
   }
 
   &__name {
-    z-index: 1;
-    color: #fff;
+    position: relative;
+    z-index: 2;
+
+    color: white;
+
     font-size: 20px;
     font-weight: 600;
-    transition: 0.35s;
+    letter-spacing: 0.5px;
+
+    transition: 0.4s;
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 1200px) {
     &__grid {
       grid-template-columns: repeat(4, 180px);
     }
   }
 
   @media (max-width: 900px) {
+    padding: 80px 0;
+
     &__grid {
-      grid-template-columns: repeat(3, 180px);
+      grid-template-columns: repeat(3, 170px);
+      gap: 20px;
+    }
+
+    &__card {
+      width: 170px;
+      height: 170px;
     }
   }
 
@@ -91,30 +196,25 @@
     padding: 60px 15px;
 
     &__subtitle {
-      margin-bottom: 35px;
-
+      margin-bottom: 40px;
       font-size: 12px;
     }
 
     &__grid {
       grid-template-columns: repeat(2, minmax(130px, 1fr));
-
-      gap: 15px;
+      gap: 16px;
     }
 
     &__card {
       width: 100%;
       height: auto;
-
       aspect-ratio: 1;
-
-      border-radius: 20px;
+      border-radius: 22px;
     }
 
     &__logo {
-      margin-bottom: 15px;
-
-      font-size: clamp(40px, 12vw, 55px);
+      margin-bottom: 14px;
+      font-size: clamp(42px, 12vw, 56px);
     }
 
     &__name {
@@ -125,7 +225,6 @@
   @media (max-width: 380px) {
     &__grid {
       grid-template-columns: 1fr;
-
       max-width: 180px;
       margin: 0 auto;
     }
